@@ -1,0 +1,57 @@
+[
+  {
+    "name": "FluidMenuBarExtra",
+    "version": "1.5.1",
+    "source": "https://github.com/wadetregaskis/FluidMenuBarExtra",
+    "revision": "3ce81bd0e5ab0ae5b027076482f4bd86be30162c",
+    "files": {
+      "LICENSE": "b62c012293d7116ee15f22cc3ebcd2b68af6a33796980fa0f07b36ba8df18feb",
+      "Package.swift": "32ef8b3c10941fa0d422736727256fa70a6df5381382254fb4f60140a559a983",
+      "Sources/FluidMenuBarExtra/EventMonitor.swift": "f473420e79070271529b77c196d144ae6b3e6f0fafa47dcba874716776c2ff69",
+      "Sources/FluidMenuBarExtra/FluidMenuBarExtra.swift": "c26ed8e31cd0cf005c0628655dd5e0b89526169883af426ce4431013a695c74b",
+      "Sources/FluidMenuBarExtra/FluidMenuBarExtraStatusItem.swift": "385fd0d57e469b1b0dd7b028468d29162b5245a430a5f4f73e94a343f7639710",
+      "Sources/FluidMenuBarExtra/FluidMenuBarExtraWindow.swift": "63f58f0e7553f3a735e363a3603c3943d06278516c7994aff9da4e3d5f268e1f",
+      "Sources/FluidMenuBarExtra/RootViewModifier.swift": "4166ec32eea751589835b388ed86382bc2e9632945aeb3013e613344e116ce90",
+      "Sources/FluidMenuBarExtra/UpdateSizeAction.swift": "135417ec73475126bb38818ee4a791741dc18a31e719630eca4253b0f0fadbb6"
+    }
+  },
+  {
+    "name": "KeyboardShortcuts",
+    "version": "2.4.0",
+    "source": "https://github.com/sindresorhus/KeyboardShortcuts",
+    "revision": "1aef85578fdd4f9eaeeb8d53b7b4fc31bf08fe27",
+    "files": {
+      "LICENSE": "5c932d88256b4ab958f64a856fa48e8bd1f55bc1d96b8149c65689e0c61789d3",
+      "Package.swift": "6cc08d36922bc1acf222fea0225e882731f08849e4babc5a8ad7bf6edaec147a",
+      "Sources/KeyboardShortcuts/CarbonKeyboardShortcuts.swift": "6dccbb5eefea5374717c61b98a083c1baa195efcee170fa03cad1ac46e6e11d6",
+      "Sources/KeyboardShortcuts/Key.swift": "ef0d98003a62c549a862f410cbba45b8c3acb563bf003758e34ac25ee8ab5331",
+      "Sources/KeyboardShortcuts/KeyboardShortcuts.swift": "4f24ca959f6d4c22267b689d788bb123c487273e91cb4c4ddb7b1abec8f78c71",
+      "Sources/KeyboardShortcuts/Localization/ar.lproj/Localizable.strings": "b2f29f2d4bd4e71d36bf12c413f5256b673fd8f632f7c892e31f2df5bfbc78e3",
+      "Sources/KeyboardShortcuts/Localization/cs.lproj/Localizable.strings": "efbd099d991e973a03f113868f5b8ed7d512dc7a51d355f94afbddc93acc4535",
+      "Sources/KeyboardShortcuts/Localization/de.lproj/Localizable.strings": "3547f53ed827476941780308e1d93849a016319eaf0afae8dbdba17ed255701d",
+      "Sources/KeyboardShortcuts/Localization/en.lproj/Localizable.strings": "121a1f986c226d89133bbb04ef61b5ddd7871a501de7d0b584dc3a6ea759c27d",
+      "Sources/KeyboardShortcuts/Localization/es.lproj/Localizable.strings": "b898cdd620073ecf3ba696f8a328216d037177737cfbea296c98809aaf03928e",
+      "Sources/KeyboardShortcuts/Localization/fr.lproj/Localizable.strings": "65f25a53e19ad1d10c708eb00a1389e10a993ac6d397dd583ead239473a196ef",
+      "Sources/KeyboardShortcuts/Localization/hu.lproj/Localizable.strings": "29a26fd63b1bf1e63b2d229e6cf84461970288084357d522c0a6ee239aa69d6d",
+      "Sources/KeyboardShortcuts/Localization/it.lproj/Localizable.strings": "d8f2a63c03213ae0997ee05091e845d9e2d38185f9cbde743f59452563f542b5",
+      "Sources/KeyboardShortcuts/Localization/ja.lproj/Localizable.strings": "151a6181659832d2bfa174cabe741209f4c1b8df6431c2790ca060c2384b198b",
+      "Sources/KeyboardShortcuts/Localization/ko.lproj/Localizable.strings": "2be0deac40b5089121c2a395d91bbfbadc0a76b19ce857fa25610bfec6a603f0",
+      "Sources/KeyboardShortcuts/Localization/nl.lproj/Localizable.strings": "9285e7323a8946647114455eed82048b0db0ac99ab951d1902d819fd412a85d6",
+      "Sources/KeyboardShortcuts/Localization/pt-BR.lproj/Localizable.strings": "71b8195cbaa54aeacdfc5bc361d817dd5a055973be2a3d95544b6ac6406c6b7e",
+      "Sources/KeyboardShortcuts/Localization/ru.lproj/Localizable.strings": "bdd2b545bc069ba2319d94f2fa543e133ee0c59cfc84f2834699af1b857b8c3a",
+      "Sources/KeyboardShortcuts/Localization/sk.lproj/Localizable.strings": "8848a7ffd14d40681d3e89b904776778bc8cb6a1d2d8e7bd0831078cd9467d8a",
+      "Sources/KeyboardShortcuts/Localization/zh-Hans.lproj/Localizable.strings": "607362468030607031a8be535aa731cd32a08de041d93ffe2afb7b11935087dd",
+      "Sources/KeyboardShortcuts/Localization/zh-TW.lproj/Localizable.strings": "ca360c224a64e9b46f38c457b3d4e4a770b4c61fdc3a02cef3f86229b0d17715",
+      "Sources/KeyboardShortcuts/NSMenuItem++.swift": "d1451051d56817bfb9662d05ddc142d5100e1eeed79512d84e7baa1ea6b9d78a",
+      "Sources/KeyboardShortcuts/Name.swift": "75e838d1cc4360bf65b90ef438d5dfdab1a5d12fd7bb6a2888230332de7cc755",
+      "Sources/KeyboardShortcuts/Recorder.swift": "12b7459a955f5566c3f8213ba0634e03e02affa76ae1195452d54261958d0c8e",
+      "Sources/KeyboardShortcuts/RecorderCocoa.swift": "7de3aedbe0099e5c1f43c34af31ae7888c86e9b9db37ef178391fc4336f2dd07",
+      "Sources/KeyboardShortcuts/Shortcut.swift": "d1582229d00e63ae5bf2e0de9d78d762645051947214375f2546fa108c7a3911",
+      "Sources/KeyboardShortcuts/Utilities.swift": "eba72d07934639e7791de290ea9811aae88952d363132d4116203660b67ec003",
+      "Sources/KeyboardShortcuts/ViewModifiers.swift": "b30e63e12d57eedd3bca958796d01dd131e10b595f0c92bd67f835bdfea87c1d",
+      "Tests/KeyboardShortcutsTests/KeyboardShortcutsTests.swift": "777347d316c2d38a7f07165d6560076f4d1072a9506332bfe885647670866d04",
+      "Tests/KeyboardShortcutsTests/RecorderLayoutTests.swift": "046b469d3769b9355e7848b6e4592d64db339ba5ff5b3a8cb1545a04817e58c0",
+      "Tests/KeyboardShortcutsTests/Utilities.swift": "917019377e1a93cd8d69c924ddc0b2330f32675bbd889b73102d6397fb0e8bd6"
+    }
+  }
+]

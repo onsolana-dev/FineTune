@@ -28,7 +28,7 @@ struct AboutTab: View {
                     .interpolation(.high)
                     .frame(width: 96, height: 96)
 
-                Text("FineTune")
+                Text("FineTune Local")
                     .font(.system(size: 22, weight: .semibold))
                     .foregroundStyle(DesignTokens.Colors.textPrimary)
 
@@ -49,11 +49,11 @@ struct AboutTab: View {
                     isPrimary: true
                 )
                 AboutLinkChip(
-                    label: "Star on GitHub",
+                    label: "Fork on GitHub",
                     icon: "star",
                     hoverIcon: "star.fill",
                     hoverColor: .yellow,
-                    url: URL(string: "https://github.com/ronitsingh10/FineTune")!
+                    url: URL(string: "https://github.com/onsolana-dev/FineTune")!
                 )
             }
 

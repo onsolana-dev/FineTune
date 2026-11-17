@@ -6,7 +6,6 @@ import UniformTypeIdentifiers
 struct MenuBarPopupView: View {
     @Bindable var audioEngine: AudioEngine
     @Bindable var deviceVolumeMonitor: DeviceVolumeMonitor
-    @ObservedObject var updateManager: UpdateManager
 
     let permission: AudioRecordingPermission
 
@@ -897,7 +896,7 @@ struct MenuBarPopupView: View {
                     audioEngine.setDevice(for: app, deviceUID: nil)
                 },
                 onAppActivate: {
-                    activateApp(pid: app.id, bundleID: app.bundleID)
+                    activateApp(pid: app.id)
                 },
                 eqSettings: audioEngine.getEQSettings(for: app),
                 userPresets: userPresets,
@@ -1441,23 +1440,16 @@ struct MenuBarPopupView: View {
     }
 
     /// Activates an app, bringing it to foreground and restoring minimized windows
-    private func activateApp(pid: pid_t, bundleID: String?) {
-        // Step 1: Always activate via NSRunningApplication (reliable for non-minimized)
-        let runningApp = NSWorkspace.shared.runningApplications.first { $0.processIdentifier == pid }
-        runningApp?.activate()
-
-        // Step 2: Try to restore minimized windows via AppleScript
-        if let bundleID = bundleID {
-            // reopen + activate restores minimized windows for most apps
-            let script = NSAppleScript(source: """
-                tell application id "\(bundleID)"
-                    reopen
-                    activate
-                end tell
-                """)
-            script?.executeAndReturnError(nil)
-        }
+    private func activateApp(pid: pid_t) {
+        guard let app = NSRunningApplication(processIdentifier: pid) else { return }
+        app.activate()
+        guard let url = app.bundleURL else { return }
+        let configuration = NSWorkspace.OpenConfiguration()
+        configuration.activates = true
+        configuration.createsNewApplicationInstance = false
+        NSWorkspace.shared.openApplication(at: url, configuration: configuration) { _, _ in }
     }
+
 }
 
 // MARK: - Previews

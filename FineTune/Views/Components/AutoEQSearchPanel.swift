@@ -396,7 +396,7 @@ struct AutoEQSearchPanel: View {
         } else if debouncedQuery.isEmpty {
             let favorites = resolvedFavorites
             if favorites.isEmpty {
-                Text("Type to search headphones")
+                Text("Search local profiles or import a file")
                     .font(.system(size: 11))
                     .foregroundStyle(DesignTokens.Colors.textTertiary)
                     .frame(maxWidth: .infinity, minHeight: listHeight)

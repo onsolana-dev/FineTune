@@ -36,7 +36,7 @@ final class AutoEQProfileManager {
             profiles[profile.id] = profile
         }
 
-        // Load catalog from cache/GitHub
+        // Load local catalog only; no network requests
         Task { @MainActor in
             await self.fetcher.loadCatalog()
             self.rebuildSearchIndex()
@@ -73,7 +73,7 @@ final class AutoEQProfileManager {
 
     // MARK: - Profile Resolution
 
-    /// Resolve a profile by ID: memory → cache → network.
+    /// Resolve a profile by ID: memory → local cache.
     func resolveProfile(for id: String) async -> AutoEQProfile? {
         // Already loaded (imported or previously fetched)
         if let existing = profiles[id] { return existing }
@@ -114,7 +114,7 @@ final class AutoEQProfileManager {
 
     /// Rebuild the search index from fetcher catalog + imported profiles.
     private func rebuildSearchIndex() {
-        // Catalog entries from GitHub
+        // Locally cached catalog entries
         var entries = fetcher.catalog
 
         // Add imported profiles as pseudo-catalog entries

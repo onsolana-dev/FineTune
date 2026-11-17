@@ -1,62 +1,9 @@
-# Contributing to FineTune
+# Working on FineTune Local
 
-Thank you for your interest in contributing to FineTune!
+This is a modified personal fork, not the upstream distribution. Changes should retain the original GPLv3 notices and the MIT notices of the two vendored libraries.
 
-## Building from Source
+Build using `bash scripts/build-local.sh`. Run the isolated profile regression checks with `bash scripts/test-local-profiles.sh`. The Xcode project refers only to packages in `Vendor/`; do not replace these with floating remote requirements.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/ronitsingh10/FineTune.git
-   cd FineTune
-   ```
+Before changing a dependency, inspect the exact new source and all build entrypoints without executing it. Record its upstream revision and file hashes in `Vendor/provenance.json` only after review. A manifest is executable Swift, so inspect it before letting SwiftPM evaluate it. Keep review evidence outside the untrusted source checkout.
 
-2. Open in Xcode:
-   ```bash
-   open FineTune.xcodeproj
-   ```
-
-3. Set your development team in Xcode:
-   - Select the FineTune target
-   - Go to Signing & Capabilities
-   - Select your team from the dropdown
-
-4. Build and run (Cmd+R)
-
-## Submitting Issues
-
-- Check existing issues before creating a new one
-- Include macOS version and steps to reproduce
-- For audio issues, include which apps were playing audio
-
-## Pull Requests
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/my-feature`)
-3. Make your changes
-4. Test with multiple audio sources and output devices
-5. Commit your changes
-6. Push to your fork and open a pull request
-
-## Code Style
-
-- Follow existing patterns in the codebase
-- Use `@Observable` and `@MainActor` for state management
-- Audio callback code must be real-time safe (no allocations, locks, or ObjC)
-- Views: props first, callbacks for mutations, `@State` only for local UI state
-
-## Audio Callback Guidelines
-
-Code running in `processAudio()` must be real-time safe:
-
-- No memory allocations (`malloc`, `new`, `Array.append`)
-- No locks (`NSLock`, `DispatchSemaphore`, `os_unfair_lock`)
-- No Objective-C messaging
-- No file I/O or logging
-- No Swift `print()` statements
-
-## Testing
-
-Before submitting:
-- Test with 2+ output devices
-- Test device hot-plug (disconnect during playback)
-- Test with 5+ apps playing audio simultaneously
+Audio callback code must avoid allocations, locks, Objective-C messaging, file I/O, and logging. Hardware-dependent behavior needs a separate playback test; compilation alone is not evidence that audio routing works on every output device.

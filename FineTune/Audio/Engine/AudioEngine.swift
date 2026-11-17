@@ -2208,7 +2208,3 @@ final class AudioEngine {
         }
     }
 }
-
-// MARK: - URLHandlerEngine Conformance
-
-extension AudioEngine: URLHandlerEngine {}

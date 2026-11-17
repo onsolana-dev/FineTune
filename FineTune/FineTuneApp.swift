@@ -9,19 +9,6 @@ private let logger = Logger(subsystem: "com.finetuneapp.FineTune", category: "Ap
 
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate {
-    var audioEngine: AudioEngine?
-
-    func application(_ application: NSApplication, open urls: [URL]) {
-        guard let audioEngine = audioEngine else {
-            return
-        }
-        let urlHandler = URLHandler(audioEngine: audioEngine)
-
-        for url in urls {
-            urlHandler.handleURL(url)
-        }
-    }
-
     nonisolated func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         willPresent notification: UNNotification,
@@ -50,7 +37,6 @@ struct FineTuneApp: App {
     @State private var menuBarPopupController: MenuBarPopupController
     @State private var shortcutsRegistry: ShortcutsRegistry
     @State private var resolver: TargetAppResolver
-    @StateObject private var updateManager = UpdateManager()
     @State private var showMenuBarExtra = true
 
     /// Snapshot icon computed at launch from the user's chosen style and the current
@@ -69,8 +55,7 @@ struct FineTuneApp: App {
                 accessibility: accessibility,
                 mediaKeyStatus: mediaKeyStatus,
                 mediaKeyMonitor: mediaKeyMonitor,
-                shortcutsRegistry: shortcutsRegistry,
-                updateManager: updateManager
+                shortcutsRegistry: shortcutsRegistry
             )
         }
         FluidMenuBarExtra("FineTune", image: launchIconImage, isInserted: $showMenuBarExtra) {
@@ -86,7 +71,6 @@ struct FineTuneApp: App {
         MenuBarPopupView(
             audioEngine: audioEngine,
             deviceVolumeMonitor: audioEngine.deviceVolumeMonitor as! DeviceVolumeMonitor,
-            updateManager: updateManager,
             permission: audioEngine.permission,
             accessibility: accessibility,
             mediaKeyStatus: mediaKeyStatus,
@@ -221,9 +205,6 @@ struct FineTuneApp: App {
         _menuBarPopupController = State(initialValue: popupController)
         _shortcutsRegistry = State(initialValue: registry)
         _resolver = State(initialValue: resolver)
-
-        // Pass engine to AppDelegate
-        _appDelegate.wrappedValue.audioEngine = engine
 
         if permission.status == .unknown {
             permission.request()
